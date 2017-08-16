@@ -85,6 +85,7 @@ This is the good stuff. Each type has its own set of attributes.
 | numSeasonLabel | Plaintext for how many seasons there are | - |
 | queue | Is it in the user's queue? | - |
 | recentInterestingMoment | UNKNOWN | - |
+| regularSynoysis | More useable, readable synopsis | - |
 | releaseYear | Release year | - |
 | runtime | UNKNOWN | - |
 | seasonCount | Integer for how many seasons there are | - |
