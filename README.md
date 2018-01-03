@@ -60,42 +60,53 @@ This is the good stuff. Each type has its own set of attributes.
 
 | Attribute | Description | Notes |
 | --------- | ----------- | ----- |
-| id        | ID of the genre in question | Seems redundant. |
+| id        | Genre ID | - |
 | length    | Number of shows | - |
 | name      | Name of the genre, i.e. "Exciting TV Shows" | - |
-| trackIds  | UNKNOWN | - |
-| requestId | UNKNOWN | It's used with `su` frequently. |
-| su        | Must include a quantifier afterwards. Any attributes following the quantifier must be `videos` attributes | Weird stuff with requestID? |
+| trackIds  | N/A | - |
+| requestId | N/A | It's used with `su` frequently. |
+| su        | Must include a quantifier afterwards. Any attributes following the quantifier must be `videos` attributes | See genres#requestId |
 
 ### Videos
 | Attribute | Description | Notes |
 | --------- | ----------- | ----- |
 | availability | Can it be played | - |
 | availabilityEndDateNear | Is the show leaving netflix soon? | - |
-| bookmarkPosition | UNKNOWN | - |
+| bookmarkPosition | N/A | - |
 | cast | Cast persons | - |
 | commonSense | What does the maturity rating mean? | - |
 | copyright | Copyright | - |
 | delivery | Playback features such as 4k | - |
 | episodeCount | Number of episodes the show has | - |
-| festivals | UNKNOWN | - |
-| genres | UNKNOWN | - |
-| info | UNKNOWN | - |
+| festivals | N/A | - |
+| genres | N/A | - |
+| info | N/A | - |
 | maturity | Rating information | - |
 | numSeasonLabel | Plaintext for how many seasons there are | - |
 | queue | Is it in the user's queue? | - |
-| recentInterestingMoment | UNKNOWN | - |
+| recentInterestingMoment | N/A | - |
 | regularSynoysis | More useable, readable synopsis | - |
 | releaseYear | Release year | - |
-| runtime | UNKNOWN | - |
+| runtime | N/A | - |
 | seasonCount | Integer for how many seasons there are | - |
-| seasonList | UNKNOWN | - |
+| seasonList | List of seasons | Must be called with a  |
 | similars | Shows that are similar | - |
 | summary | Cursory show information | - |
 | synopsys | Synopsis | - |
 | title | Title | - |
-| trailers | UNKNOWN | - |
+| trailers | N/A | - |
 | userRating | Information on the rating for the user and by the user | - |
 | watched | Has user watched? | - |
 | writers | List of writers | - |
+
+### Seasons
+
+| Attribute | Type |Description | Notes |
+| --------- | ---- | ----------- | ----- |
+| id | int | Season ID | - |
+| name | string | Full Season Name, i.e. Season 1 | - |
+| shortName | string | Season Name Shorthand, i.e. S1 | - |
+| hiddenEpisodeNumbers | bool | N/A | - |
+| length | int | # of episodes | - |
+
 
