@@ -1,7 +1,7 @@
 # Netflix Shakti API
 ---
 # Table of Contents
-1. [Overview/Getting Started](#overviewgetting-started) 
+1. [Overview/Getting Started](#overviewgetting-started)  
 1.1 [Basic Request](#basic-request)  
 1.2 [Building The Path](#building-the-path)  
 2. [Documentation](#documentation)  
