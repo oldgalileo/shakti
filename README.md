@@ -4,7 +4,8 @@
 1.1 [Basic Request](#basic-request)  
 1.2 [Building The Path](#building-the-path)  
 2. [Documentation](#documentation)  
-2.1 [Attributes](#attributes)  
+2.1 [Types](#types)  
+2.2 [Quantifiers](#quantifiers)  
 
 # Overview/Getting Started
 *NOTE*: This writeup assumes you have a Netflix account, and have written/can write the code to send the requests yourself. This an overview of how to use Shakti, and documentation thereof. 
@@ -93,17 +94,8 @@ More complicated paths will use selectors and selector ranges.
 Th
 
 # Documentation
-There are 4 types for a path piece:
-- Genres
-- Videos *(Synonymous with 'Show')*
-- Seasons
-- Person
-- Lolomos *(List of List of Movies, https://twitter.com/arungupta/status/624402051116568576)*
 
-Each of these has an ID, as well as some allowed attributes.
-
-## Attributes
-This is the good stuff. Each type has its own set of attributes. 
+## Types
 
 ### Genres
 
@@ -158,5 +150,12 @@ This is the good stuff. Each type has its own set of attributes.
 | hiddenEpisodeNumbers | bool | N/A | - |
 | length | int | # of episodes | - |
 | episodes | map | List of episodes | - | 
+
+### LoLoMos
+
+This is the most unintuitive type by name. LoLoMos is short for a "List of List of Movies" *(https://twitter.com/arungupta/status/624402051116568576)*
+
+## Quantifiers
+
 
 
