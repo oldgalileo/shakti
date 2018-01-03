@@ -1,11 +1,24 @@
 # Netflix Shakti API
+---
+# Table of Contents
+1. [Overview/Getting Started](#overviewgetting-started)
+1.1 [Basic Request](#basic-request)
+1.2 [Building The Path](#building-the-path)
+2. [Documentation](#documentation)
+---
+# Overview/Getting Started
+*NOTE*: This writeup assumes you have a Netflix account, and have written/can write the code to send the requests yourself. This an overview of how to use Shakti, and documentation thereof. 
 
-# Setting Up The Request
-All of Netflix's data is fetched through this API they have developed called "Shakti". Almost all of these requests have a pretty straightforward form:
+If you have questions, comments, or concerns feel free to drop me an email: howard@getcoffee.io
+
+## Basic Request
+Most, if not all, of Netflix's data is fetched through their API called "Shakti". The request path looks like so:
 ```
-POST /api/shakti/VALUE/pathEvaluator?method=call&withSize=true&materialize=true&searchAPIV2=false
+POST /api/shakti/$VALUE$/pathEvaluator?method=call&withSize=true&materialize=true&searchAPIV2=false
 ```
-As of right now, I'm unclear as to how the value is generated. I merely watch for the first `pathEvaluator` request and grab the value. Assuming you are sending this while logged in on Netflix page, either via a bookmarklet or simply the developer console, the headers are also simple: 
+Where `$VALUE$` is the 'build identifier' (presumably the current Shakti build id).
+
+Assuming you are sending this while logged in on Netflix page, either via a bookmarklet or simply the developer console, the headers are also simple: 
 ```
         'Accept': 'application/json, text/javascript, */*',
         'Accept-Language': 'en-US,en;q=0.8',
@@ -24,26 +37,62 @@ The body format is comprised of two components:
 ```
 The authURL is stored in a globally accessible object through the following: `netflix.reactContext.models.userInfo.data.authURL`. That's the easy part. The path is where we get into the thick of it.
 
-# Building The Path
-The paths component is an array of all the different pieces you want. Each piece itself is an array, and is broken down into a few pieces. These differ based on what particular information you want. This is what it looks like so far
+## Building The Path
+The paths component is an array of all the different pieces you want. Each piece is an array which represents one "type" and the attributes of that type you wish to retrieve. The attributes vary between types, however the path will *usually* follow the structure below:
 ```
 ...
     'paths': [
-        [               // first piece
+        [ // first piece
             "type",
             "ID",
-            "quantifier",   // Situational, 
-            "attribute",    // Can also look like ["attribute 1", "attribute 2", ...],
+            "attribute 1",
+            "attribute 2",
         ],
-        [               // second piece, etc.
+        [ // second piece, etc.
         ...
         ]
     ]
 ...
 ```
-This is the basic form of the path. We have our type, an ID for that type, and then what attributes or information we would like to retrieve from the specific type#ID. There can also be a quantifier, which defines how many entries you want in return. This is situational, and isn't included with every request like the other 3 are. 
+Every path piece contains at least a type, an ID, and one or more attributes. When you send a query for a basic path, the server responds with the attributes of the type-instance that matches the ID.
 
-## Type
+We can use the show "Marvel's Agents of Shield" as an example, which has an ID of `70279852`. Shakti uses the type `video` for both movies and TV shows and distinguishes between them with attributes. To get the name of the show, the path would look like so:
+```
+...
+    'paths': [
+        [
+            "video",
+            "70279852",
+            "name",
+        ],
+    ]
+...
+```
+
+More complicated paths will use selectors and selector ranges. 
+```
+...
+    'paths': [
+        [ // first piece
+            "type",
+            "ID",
+            "selector",     // Not always required, Application dependent 
+            {               // Selector Range
+                "from": -1,
+                "to":   25,
+            },
+            "attribute 1",    // Can also look like ["attribute 1", "attribute 2", ...],
+            "attribute 2",
+        ],
+        [ // second piece, etc.
+        ...
+        ]
+    ]
+...
+```
+Th
+
+# Documentation Type
 There are 4 types for a path piece:
 - Genres
 - Videos *(Synonymous with 'Show')*
@@ -108,5 +157,6 @@ This is the good stuff. Each type has its own set of attributes.
 | shortName | string | Season Name Shorthand, i.e. S1 | - |
 | hiddenEpisodeNumbers | bool | N/A | - |
 | length | int | # of episodes | - |
+| episodes | map | List of episodes | - | 
 
 
