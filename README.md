@@ -1,5 +1,4 @@
 # Netflix Shakti API
----
 # Table of Contents
 1. [Overview/Getting Started](#overviewgetting-started)  
 1.1 [Basic Request](#basic-request)  
@@ -7,7 +6,6 @@
 2. [Documentation](#documentation)  
 2.1 [Attributes](#attributes)  
 
----
 # Overview/Getting Started
 *NOTE*: This writeup assumes you have a Netflix account, and have written/can write the code to send the requests yourself. This an overview of how to use Shakti, and documentation thereof. 
 
