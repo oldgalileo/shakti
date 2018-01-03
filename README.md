@@ -5,6 +5,8 @@
 1.1 [Basic Request](#basic-request)  
 1.2 [Building The Path](#building-the-path)  
 2. [Documentation](#documentation)  
+2.1 [Attributes](#attributes)  
+
 ---
 # Overview/Getting Started
 *NOTE*: This writeup assumes you have a Netflix account, and have written/can write the code to send the requests yourself. This an overview of how to use Shakti, and documentation thereof. 
@@ -92,7 +94,7 @@ More complicated paths will use selectors and selector ranges.
 ```
 Th
 
-# Documentation Type
+# Documentation
 There are 4 types for a path piece:
 - Genres
 - Videos *(Synonymous with 'Show')*
