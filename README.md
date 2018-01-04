@@ -10,7 +10,7 @@
     - [Videos](#videos)
     - [Seasons](#seasons)
     - [LoLoMos](#lolomos)
-  - [Quantifiers](#quantifiers)  
+  - [Selectors](#selectors)  
 
 # Overview/Getting Started
 *NOTE*: This writeup assumes you have a Netflix account, and have written/can write the code to send the requests yourself. This an overview of how to use Shakti, and documentation thereof. 
@@ -119,6 +119,10 @@ More complicated paths will use selectors and selector ranges.
 
 ### Videos
 
+This is the most dynamic and complex of the broader types. Unlike the rest, the `video` type has **three *implicit* types** which can alter the response: Movies, shows, and episodes.  
+
+As of right now, the subtypes are not properly reflected below and their attributes poorly differentiated. It's unclear the best way to format this, and will be revised in the future.
+
 #### Attributes
 |Name                   |Description            |Response Type|Example        |
 |-----------------------|-----------------------|-------------|---------------|
@@ -137,6 +141,8 @@ More complicated paths will use selectors and selector ranges.
 |episodeCount           |# of episodes          |int          |192            |
 |evidence               |Reason to watch show   |Object       |...            |
 |hasSensitiveMetadata   |N/A                    |boolean      |false          |
+|isNSRE                 |N/A                    |boolean      |false          |
+|isOriginal             |Netflix Original Series|boolean      |false          |
 |maturity               |Maturity info          |Object       |...            |
 |numSeasonsLabel        |Readable # of seasons  |string       |"9 Seasons"    |
 |queue                  |In user queue          |Object       |...            |
@@ -169,7 +175,7 @@ More complicated paths will use selectors and selector ranges.
 This is the most unintuitive type by name. LoLoMos is short for a "List of List of Movies" *(https://twitter.com/arungupta/status/624402051116568576)*
 
 ### Person
-#### Basic Attributes
+#### Attributes
 | Name         | Description                | Response Type | Example       |
 | ------------ | -------------------------- | ------------- | ------------- |
 | id           | Person ID                  | int           | 20055888      |
@@ -180,8 +186,7 @@ This is the most unintuitive type by name. LoLoMos is short for a "List of List 
 | trackIds     | N/A                        | Object        | N/A           |
 | (0...length) | Video ID                   | Array         | N/A           |
 
-
-## Quantifiers
+## Selectors
 
 
 
