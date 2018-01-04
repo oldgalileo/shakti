@@ -1,11 +1,16 @@
 # Netflix Shakti API
+
 # Table of Contents
-1. [Overview/Getting Started](#overviewgetting-started)  
-1.1 [Basic Request](#basic-request)  
-1.2 [Building The Path](#building-the-path)  
-2. [Documentation](#documentation)  
-2.1 [Types](#types)  
-2.2 [Quantifiers](#quantifiers)  
+- [Overview/Getting Started](#overviewgetting-started)  
+  - [Basic Request](#basic-request)  
+  - [Building The Path](#building-the-path)  
+- [Documentation](#documentation)  
+  - [Types](#types)  
+    - [Genres](#genres)
+    - [Videos](#videos)
+    - [Seasons](#seasons)
+    - [LoLoMos](#lolomos)
+  - [Quantifiers](#quantifiers)  
 
 # Overview/Getting Started
 *NOTE*: This writeup assumes you have a Netflix account, and have written/can write the code to send the requests yourself. This an overview of how to use Shakti, and documentation thereof. 
@@ -50,14 +55,14 @@ The paths component is an array of all the different pieces you want. Each piece
             "attribute 2",
         ],
         [ // second piece, etc.
-        ...
+            ...
         ]
     ]
 ...
 ```
 Every path piece contains at least a type, an ID, and one or more attributes. When you send a query for a basic path, the server responds with the attributes of the type-instance that matches the ID.
 
-We can use the show "Marvel's Agents of Shield" as an example, which has an ID of `70279852`. Shakti uses the type `video` for both movies and TV shows and distinguishes between them with attributes. To get the name of the show, the path would look like so:
+We can use the show "Marvel's Agents of Shield" as an example, which has an ID of `70279852`. Shakti uses the type `video` for both movies and TV shows and distinguishes between them via attributes. To get the name of the show, the path would look like so:
 ```
 ...
     'paths': [
@@ -91,13 +96,29 @@ More complicated paths will use selectors and selector ranges.
     ]
 ...
 ```
-Th
 
 # Documentation
 
 ## Types
 
 ### Genres
+
+#### Basic Attributes
+| Name      | Description             | Response Type | Example |
+| --------- | ----------------------- | ------------- | ------- |
+| id        | ID                      | int           | 26065   |
+| length    | # of *Videos*           | int           |         |
+| name      | Name                    | string        |         |
+| menuName  | Name in Menus           | string        |         |
+| subgenres | Subgenres               | Object        |         |
+| summary   | Basic Genre Information | Object        |         |
+| trackIds  | *N/A*                   | Object        |         |
+| requestId | *N/A*                   | string        |         |
+| rw        | *N/A*                   | Array         |         |
+
+#### Relative Attributes
+
+| Name | Description | Response Type |
 
 | Attribute | Description | Notes |
 | --------- | ----------- | ----- |
@@ -109,36 +130,36 @@ Th
 | su        | Must include a quantifier afterwards. Any attributes following the quantifier must be `videos` attributes | See genres#requestId |
 
 ### Videos
-| Attribute | Description | Notes |
-| --------- | ----------- | ----- |
-| availability | Can it be played | - |
+| Attribute               | Description | Notes |
+| ----------------------- | ----------- | ----- |
+| availability            | Can it be played | - |
 | availabilityEndDateNear | Is the show leaving netflix soon? | - |
-| bookmarkPosition | N/A | - |
-| cast | Cast persons | - |
-| commonSense | What does the maturity rating mean? | - |
-| copyright | Copyright | - |
-| delivery | Playback features such as 4k | - |
-| episodeCount | Number of episodes the show has | - |
-| festivals | N/A | - |
-| genres | N/A | - |
-| info | N/A | - |
-| maturity | Rating information | - |
-| numSeasonLabel | Plaintext for how many seasons there are | - |
-| queue | Is it in the user's queue? | - |
+| bookmarkPosition        | N/A | - |
+| cast                    | Cast persons | - |
+| commonSense             | What does the maturity rating mean? | - |
+| copyright               | Copyright | - |
+| delivery                | Playback features such as 4k | - |
+| episodeCount            | Number of episodes the show has | - |
+| festivals               | N/A | - |
+| genres                  | N/A | - |
+| info                    | N/A | - |
+| maturity                | Rating information | - |
+| numSeasonLabel          | Plaintext for how many seasons there are | - |
+| queue                   | Is it in the user's queue? | - |
 | recentInterestingMoment | N/A | - |
-| regularSynoysis | More useable, readable synopsis | - |
-| releaseYear | Release year | - |
-| runtime | N/A | - |
-| seasonCount | Integer for how many seasons there are | - |
-| seasonList | List of seasons | Must be called with a  |
-| similars | Shows that are similar | - |
-| summary | Cursory show information | - |
-| synopsys | Synopsis | - |
-| title | Title | - |
-| trailers | N/A | - |
-| userRating | Information on the rating for the user and by the user | - |
-| watched | Has user watched? | - |
-| writers | List of writers | - |
+| regularSynopsis         | More useable, readable synopsis | - |
+| releaseYear             | Release year | - |
+| runtime                 | N/A | - |
+| seasonCount             | Integer for how many seasons there are | - |
+| seasonList              | List of seasons | Must be called with a  |
+| similars                | Shows that are similar | - |
+| summary                 | Cursory show information | - |
+| synopsys                | Synopsis | - |
+| title                   | Title | - |
+| trailers                | N/A | - |
+| userRating              | Information on the rating for the user and by the user | - |
+| watched                 | Has user watched? | - |
+| writers                 | List of writers | - |
 
 ### Seasons
 
@@ -154,6 +175,19 @@ Th
 ### LoLoMos
 
 This is the most unintuitive type by name. LoLoMos is short for a "List of List of Movies" *(https://twitter.com/arungupta/status/624402051116568576)*
+
+### Person
+#### Basic Attributes
+| Name         | Description                | Response Type | Example       |
+| ------------ | -------------------------- | ------------- | ------------- |
+| id           | Person ID                  | int           | 20055888      |
+| headshot     | Photo resource description | Object        | N/A           |
+| length       | # of *Videos* involved in  | int           | 4             |
+| name         | Name                       | string        | "Terry Crews" |
+| requestId    | N/A                        | string        | N/A           |
+| trackIds     | N/A                        | Object        | N/A           |
+| (0...length) | Video ID                   | Array         | N/A           |
+
 
 ## Quantifiers
 
