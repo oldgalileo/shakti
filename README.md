@@ -103,74 +103,66 @@ More complicated paths will use selectors and selector ranges.
 
 ### Genres
 
-#### Basic Attributes
-| Name      | Description             | Response Type | Example |
-| --------- | ----------------------- | ------------- | ------- |
-| id        | ID                      | int           | 26065   |
-| length    | # of *Videos*           | int           |         |
-| name      | Name                    | string        |         |
-| menuName  | Name in Menus           | string        |         |
-| subgenres | Subgenres               | Object        |         |
-| summary   | Basic Genre Information | Object        |         |
-| trackIds  | *N/A*                   | Object        |         |
-| requestId | *N/A*                   | string        |         |
-| rw        | *N/A*                   | Array         |         |
-
-#### Relative Attributes
-
-| Name | Description | Response Type |
-
-| Attribute | Description | Notes |
-| --------- | ----------- | ----- |
-| id        | Genre ID | - |
-| length    | Number of shows | - |
-| name      | Name of the genre, i.e. "Exciting TV Shows" | - |
-| trackIds  | N/A | - |
-| requestId | N/A | It's used with `su` frequently. |
-| su        | Must include a quantifier afterwards. Any attributes following the quantifier must be `videos` attributes | See genres#requestId |
+#### Attributes
+| Name      | Description             | Response Type | Example             |
+| --------- | ----------------------- | ------------- | ------------------- |
+| id        | ID                      | int           | 26065               |
+| length    | # of *Videos*           | int           | 75                  |
+| name      | Name                    | string        | "Exciting TV Shows" |
+| menuName  | Name in menus           | string        | "Exciting TV Shows" |
+| subgenres | Subgenres               | Object        | N/A                 |
+| summary   | Basic genre information | Object        | ...                 |
+| su        | Video ID                | Array         | ...                 |
+| trackIds  | *N/A*                   | Object        | ...                 |
+| requestId | *N/A*                   | string        | N/A                 |
+| rw        | *N/A*                   | Array         | ...                 |
 
 ### Videos
-| Attribute               | Description | Notes |
-| ----------------------- | ----------- | ----- |
-| availability            | Can it be played | - |
-| availabilityEndDateNear | Is the show leaving netflix soon? | - |
-| bookmarkPosition        | N/A | - |
-| cast                    | Cast persons | - |
-| commonSense             | What does the maturity rating mean? | - |
-| copyright               | Copyright | - |
-| delivery                | Playback features such as 4k | - |
-| episodeCount            | Number of episodes the show has | - |
-| festivals               | N/A | - |
-| genres                  | N/A | - |
-| info                    | N/A | - |
-| maturity                | Rating information | - |
-| numSeasonLabel          | Plaintext for how many seasons there are | - |
-| queue                   | Is it in the user's queue? | - |
-| recentInterestingMoment | N/A | - |
-| regularSynopsis         | More useable, readable synopsis | - |
-| releaseYear             | Release year | - |
-| runtime                 | N/A | - |
-| seasonCount             | Integer for how many seasons there are | - |
-| seasonList              | List of seasons | Must be called with a  |
-| similars                | Shows that are similar | - |
-| summary                 | Cursory show information | - |
-| synopsys                | Synopsis | - |
-| title                   | Title | - |
-| trailers                | N/A | - |
-| userRating              | Information on the rating for the user and by the user | - |
-| watched                 | Has user watched? | - |
-| writers                 | List of writers | - |
+
+#### Attributes
+|Name                   |Description            |Response Type|Example        |
+|-----------------------|-----------------------|-------------|---------------|
+|id                     |ID                     |int          |70136120       |
+|availability           |Playable now           |Object       |...            |
+|availabilityEndDateNear|Leaving soon           |N/A          |N/A            |
+|bookmarkPosition       |Where user left off    |int          |-1             |
+|cast                   |Cast                   |Array        |...            |
+|copyright              |N/A                    |N/A          |N/A            |
+|creditsOffset          |When credits start     |int          |1353           |
+|current                |Current episode        |Array        |...            |
+|delivery               |Viewing Options (4k...)|Object       |...            |
+|directors              |Directors              |Array        |...            |
+|dpSupplementalMessage  |N/A                    |string       |""             |
+|episodeBadges          |N/A                    |Array        |...            |
+|episodeCount           |# of episodes          |int          |192            |
+|evidence               |Reason to watch show   |Object       |...            |
+|hasSensitiveMetadata   |N/A                    |boolean      |false          |
+|maturity               |Maturity info          |Object       |...            |
+|numSeasonsLabel        |Readable # of seasons  |string       |"9 Seasons"    |
+|queue                  |In user queue          |Object       |...            |
+|regularSynopsis        |Meta synopsis          |string       |"This hit c..."|
+|releaseYear            |Year released          |int          |2012           |
+|requestId              |N/A                    |string       |N/A            |
+|runtime                |Movie/Show runtime     |int          |1382           |
+|seasonCount            |# of seasons           |int          |9              |
+|seasonList             |Seasons                |Array        |...            |
+|summary                |Basic video information|Object       |...            |
+|synopsis               |Synopsis               |string       |"The boss i..."|
+|title                  |Title                  |string       |"The Office..."|
+|userRating             |User rating info       |Object       |N/A            |
+|watched                |Already watched        |bool         |false          |
+|writers                |Writers                |Array        |...            |
 
 ### Seasons
 
-| Attribute | Type |Description | Notes |
-| --------- | ---- | ----------- | ----- |
-| id | int | Season ID | - |
-| name | string | Full Season Name, i.e. Season 1 | - |
-| shortName | string | Season Name Shorthand, i.e. S1 | - |
-| hiddenEpisodeNumbers | bool | N/A | - |
-| length | int | # of episodes | - |
-| episodes | map | List of episodes | - | 
+| Name                 | Description    | Response Type | Example    |
+| -------------------- | -------------- | ------------- | ---------- |
+| id                   | ID             | int           | 70023522   |
+| hiddenEpisodeNumbers | N/A            | bool          | false      |
+| length               | # of Episodes  | int           | 6          |
+| name                 | Readable name  | string        | "Season 1" |
+| shortName            | Shortened name | string        | "S1"       |
+| episodes             | Episodes       | Object        | N/A        |
 
 ### LoLoMos
 
