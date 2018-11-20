@@ -20,9 +20,9 @@ If you have questions, comments, or concerns feel free to drop me an email: howa
 ## Basic Request
 Most, if not all, of Netflix's data is fetched through their API called "Shakti". The request path looks like so:
 ```
-POST /api/shakti/$VALUE$/pathEvaluator?method=call&withSize=true&materialize=true&searchAPIV2=false
+POST /api/shakti/$VALUE$/pathEvaluator
 ```
-Where `$VALUE$` is the 'build identifier' (presumably the current Shakti build id).
+Where `$VALUE$` is the 'build identifier' (presumably the current Shakti build id). This value can be found in a globally accessible object via the following: `netflix.appContext.state.model.models.serverDefs.data.BUILD_IDENTIFIER`
 
 Assuming you are sending this while logged in on Netflix page, either via a bookmarklet or simply the developer console, the headers are also simple: 
 ```
@@ -119,7 +119,7 @@ More complicated paths will use selectors and selector ranges.
 
 ### Videos
 
-This is the most dynamic and complex of the broader types. Unlike the rest, the `video` type has **three *implicit* types** which can alter the response: Movies, shows, and episodes.  
+This is the most dynamic and complex of the broader types. Unlike the rest, the `video` type has **three *implicit* types** which can alter the response: movies, shows, and episodes.  
 
 As of right now, the subtypes are not properly reflected below and their attributes poorly differentiated. It's unclear the best way to format this, and will be revised in the future.
 
