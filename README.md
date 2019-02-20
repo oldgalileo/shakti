@@ -130,6 +130,7 @@ As of right now, the subtypes are not properly reflected below and their attribu
 |availability           |Playable now           |Object       |...            |
 |availabilityEndDateNear|Leaving soon           |N/A          |N/A            |
 |bookmarkPosition       |Where user left off    |int          |-1             |
+|boxArts                |URL to the box art (usually in landscape). This is just a key required in the request. It's then followed by one of the following keys: (_342x192, _550x124, _665x375, _1280x720). It also requires a key that defines the type. The current keys found are: "webp" and "jpg".|Object|...|
 |cast                   |Cast                   |Array        |...            |
 |copyright              |N/A                    |N/A          |N/A            |
 |creditsOffset          |When credits start     |int          |1353           |
@@ -154,6 +155,7 @@ As of right now, the subtypes are not properly reflected below and their attribu
 |seasonList             |Seasons                |Array        |...            |
 |summary                |Basic video information|Object       |...            |
 |synopsis               |Synopsis               |string       |"The boss i..."|
+|tallBoxarts            |URL to the Box art in the same aspect ratio as the DVD cover art|Object|...|
 |title                  |Title                  |string       |"The Office..."|
 |userRating             |User rating info       |Object       |N/A            |
 |watched                |Already watched        |bool         |false          |
