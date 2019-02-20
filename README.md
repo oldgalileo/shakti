@@ -62,14 +62,14 @@ The paths component is an array of all the different pieces you want. Each piece
 ```
 Every path piece contains at least a type, an ID, and one or more attributes. When you send a query for a basic path, the server responds with the attributes of the type-instance that matches the ID.
 
-We can use the show "Marvel's Agents of Shield" as an example, which has an ID of `70279852`. Shakti uses the type `video` for both movies and TV shows and distinguishes between them via attributes. To get the name of the show, the path would look like so:
+We can use the show "Marvel's Agents of Shield" as an example, which has an ID of `70279852`. Shakti uses the type `videos` for both movies and TV shows and distinguishes between them via attributes. To get the name of the show, the path would look like so:
 ```
 ...
     'paths': [
         [
-            "video",
+            "videos",
             "70279852",
-            "name",
+            "title",
         ],
     ]
 ...
@@ -119,7 +119,7 @@ More complicated paths will use selectors and selector ranges.
 
 ### Videos
 
-This is the most dynamic and complex of the broader types. Unlike the rest, the `video` type has **three *implicit* types** which can alter the response: movies, shows, and episodes.  
+This is the most dynamic and complex of the broader types. Unlike the rest, the `videos` type has **three *implicit* types** which can alter the response: movies, shows, and episodes.  
 
 As of right now, the subtypes are not properly reflected below and their attributes poorly differentiated. It's unclear the best way to format this, and will be revised in the future.
 
