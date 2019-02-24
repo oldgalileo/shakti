@@ -7,6 +7,4 @@ Obviously, this means that in order to hit the API endpoints, you must be subscr
 
 All tokens are tied to a specific user, and are further unique on a per-profile basis, not just account.
 
-
-
 We will not go any further in describing how to get authenticatation tokens other than to say we heavily discourage you from taking Netflix user credenials directly (I.E. Username and password).
