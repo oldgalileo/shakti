@@ -13,7 +13,7 @@
   - [Selectors](#selectors)  
 
 # Overview/Getting Started
-*NOTE*: This writeup assumes you have a Netflix account, and have written/can write the code to send the requests yourself. This an overview of how to use Shakti, and documentation thereof. 
+*NOTE*: This writeup assumes you have a Netflix account, and have written/can write the code to send the requests yourself. Further clarification can be found in [Authentication](authentication/authentication.md) This an overview of how to use Shakti, and documentation thereof.
 
 If you have questions, comments, or concerns feel free to drop me an email: howard@getcoffee.io
 
