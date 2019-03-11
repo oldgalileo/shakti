@@ -13,7 +13,7 @@
   - [Selectors](#selectors)  
 
 # Overview/Getting Started
-*NOTE*: This writeup assumes you have a Netflix account, and have written/can write the code to send the requests yourself. This an overview of how to use Shakti, and documentation thereof. 
+*NOTE*: This writeup assumes you have a Netflix account, and have written/can write the code to send the requests yourself. Further clarification can be found in [Authentication](authentication/authentication.md) This an overview of how to use Shakti, and documentation thereof.
 
 If you have questions, comments, or concerns feel free to drop me an email: howard@getcoffee.io
 
@@ -62,14 +62,14 @@ The paths component is an array of all the different pieces you want. Each piece
 ```
 Every path piece contains at least a type, an ID, and one or more attributes. When you send a query for a basic path, the server responds with the attributes of the type-instance that matches the ID.
 
-We can use the show "Marvel's Agents of Shield" as an example, which has an ID of `70279852`. Shakti uses the type `video` for both movies and TV shows and distinguishes between them via attributes. To get the name of the show, the path would look like so:
+We can use the show "Marvel's Agents of Shield" as an example, which has an ID of `70279852`. Shakti uses the type `videos` for both movies and TV shows and distinguishes between them via attributes. To get the name of the show, the path would look like so:
 ```
 ...
     'paths': [
         [
-            "video",
+            "videos",
             "70279852",
-            "name",
+            "title",
         ],
     ]
 ...
@@ -119,7 +119,7 @@ More complicated paths will use selectors and selector ranges.
 
 ### Videos
 
-This is the most dynamic and complex of the broader types. Unlike the rest, the `video` type has **three *implicit* types** which can alter the response: movies, shows, and episodes.  
+This is the most dynamic and complex of the broader types. Unlike the rest, the `videos` type has **three *implicit* types** which can alter the response: movies, shows, and episodes.  
 
 As of right now, the subtypes are not properly reflected below and their attributes poorly differentiated. It's unclear the best way to format this, and will be revised in the future.
 
@@ -130,6 +130,7 @@ As of right now, the subtypes are not properly reflected below and their attribu
 |availability           |Playable now           |Object       |...            |
 |availabilityEndDateNear|Leaving soon           |N/A          |N/A            |
 |bookmarkPosition       |Where user left off    |int          |-1             |
+|boxArts                |URL to the box art (usually in landscape). This is just a key required in the request. It's then followed by one of the following keys: (_342x192, _550x124, _665x375, _1280x720). It also requires a key that defines the type. The current keys found are: "webp" and "jpg".|Object|...|
 |cast                   |Cast                   |Array        |...            |
 |copyright              |N/A                    |N/A          |N/A            |
 |creditsOffset          |When credits start     |int          |1353           |
@@ -154,6 +155,7 @@ As of right now, the subtypes are not properly reflected below and their attribu
 |seasonList             |Seasons                |Array        |...            |
 |summary                |Basic video information|Object       |...            |
 |synopsis               |Synopsis               |string       |"The boss i..."|
+|tallBoxarts            |URL to the Box art in the same aspect ratio as the DVD cover art|Object|...|
 |title                  |Title                  |string       |"The Office..."|
 |userRating             |User rating info       |Object       |N/A            |
 |watched                |Already watched        |bool         |false          |
