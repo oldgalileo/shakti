@@ -13,7 +13,7 @@
   - [Selectors](#selectors)  
 
 # Overview/Getting Started
-*NOTE*: This writeup assumes you have a Netflix account, and have written/can write the code to send the requests yourself. This an overview of how to use Shakti, and documentation thereof. 
+*NOTE*: This writeup assumes you have a Netflix account, and have written/can write the code to send the requests yourself. This an overview of how to use Shakti, and documentation thereof. If you're just here for some cool Netflix tricks, here's [an image guide hosted on Imgur for a bunch of categories Netflix wont let you easily navigate to.](https://i.imgur.com/3DTnW6C.png)
 
 If you have questions, comments, or concerns feel free to drop me an email: howard@getcoffee.io
 
