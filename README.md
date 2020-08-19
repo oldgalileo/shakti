@@ -38,7 +38,7 @@ The body format is comprised of two components:
 ```
 {
     'authURL': ...,
-    'paths': [...],
+    'path': [...],
 }
 ```
 The authURL is stored in a globally accessible object through the following: `netflix.reactContext.models.userInfo.data.authURL`. That's the easy part. The path is where we get into the thick of it.
@@ -47,7 +47,7 @@ The authURL is stored in a globally accessible object through the following: `ne
 The paths component is an array of all the different pieces you want. Each piece is an array which represents one "type" and the attributes of that type you wish to retrieve. The attributes vary between types, however the path will *usually* follow the structure below:
 ```
 ...
-    'paths': [
+    'path': [
         [ // first piece
             "type",
             "ID",
@@ -65,7 +65,7 @@ Every path piece contains at least a type, an ID, and one or more attributes. Wh
 We can use the show "Marvel's Agents of Shield" as an example, which has an ID of `70279852`. Shakti uses the type `videos` for both movies and TV shows and distinguishes between them via attributes. To get the name of the show, the path would look like so:
 ```
 ...
-    'paths': [
+    'path': [
         [
             "videos",
             "70279852",
@@ -78,7 +78,7 @@ We can use the show "Marvel's Agents of Shield" as an example, which has an ID o
 More complicated paths will use selectors and selector ranges. 
 ```
 ...
-    'paths': [
+    'path': [
         [ // first piece
             "type",
             "ID",
